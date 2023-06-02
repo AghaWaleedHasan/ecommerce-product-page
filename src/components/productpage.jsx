@@ -13,7 +13,19 @@ const ProductPage = () => {
 
   const [selectedSize, setSelectedSize] = React.useState(null)
   const [selectedImg, setSelectedImg] = React.useState(img1)
+  const [descriptionOpen, setDescriptionOpen] = React.useState(false)
+  const [reviewsOpen, setReviewsOpen] = React.useState(false)
   const [qty, setQty] = React.useState(0)
+
+  const openSizeChart = () => {
+    var modal = document.getElementById('data-modal')
+    modal.showModal()
+  }
+
+  const closeSizeChart = () => {
+    var modal = document.getElementById('data-modal')
+    modal.close()
+  }
 
   return (
     <div className={'bg-gray-100 w-screen h-full px-20 md:px-14 lg:px-10 py-4'}>
@@ -64,20 +76,54 @@ const ProductPage = () => {
                         <QtyInput qty={qty} setQty={setQty} />
                     </div>
                 </div>
-                <div className='flex space-x-2 items-center cursor-pointer'>
+                <div className='flex space-x-2 items-center cursor-pointer' id='open-size-chart' onClick={() => openSizeChart()}>
                         <RxRulerHorizontal size={24} /> <span>Size chart</span>
                 </div>
+                <dialog id='data-modal'>
+                            <div className='flex flex-col justify-center items-center'>
+                                <span className='font-bold'>Cuban Shirts</span>
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <button id='close-size-chart' onClick={() => closeSizeChart()}>Close</button>
+                </dialog>
                 <div className='w-full flex flex-col space-y-6'>
                     <button className=' h-10 w-full lg:w-1/2 bg-black text-white font-bold text-sm tracking-wider'>ADD TO CART</button>
-                    <button className=' h-10 w-full border border-black border-solid font-bold text-sm tracking-wider'>BUY IT NOW</button>
+                    <button className=' h-10 w-full border border-black border-solid font-bold text-sm tracking-wider cursor-pointer hover:bg-red-500 hover:text-white'>BUY IT NOW</button>
                 </div>
                 <div className='flex flex-col pt-6'>
-                    <div className='w-full flex justify-between items-center font-bold pb-3'>
-                        <span>DESCRIPTION</span><BsChevronDown color='gray'/>
+                    <div onClick={() => setDescriptionOpen(!descriptionOpen)} className=' cursor-pointer w-full flex justify-between items-center font-bold pb-3'>
+                        <span>DESCRIPTION</span><BsChevronDown className={(descriptionOpen ? ' rotate-180' : '') + ' duration-200'} color='gray'/>
                     </div>
-                    <div className='w-full flex justify-between items-center font-bold pt-3 border-t border-solid border-gray-200'>   
-                        <span>CUSTOMER REVIEWS</span><BsChevronDown color='gray'/>
+                    <p className={(descriptionOpen ? ' pb-4' : 'hidden ') + ' text-xs font-light tracking-wider'}>
+                    This classic black Cuban shirt is designed with a relaxed fit and made from 100% cotton pique polo fabric for added comfort and a soft hand feel. It features a black BSPKN. loop label for a stylish finish and comes with easy washing instructions to preserve its great look.
+                    </p>
+                    <div onClick={() => setReviewsOpen(!reviewsOpen)} className=' cursor-pointer w-full flex justify-between items-center font-bold pt-3 border-t border-solid border-gray-200'>   
+                        <span>CUSTOMER REVIEWS</span><BsChevronDown className={(reviewsOpen ? ' rotate-180' : '') + ' duration-200'} color='gray'/>
                     </div>
+                    <p className={(reviewsOpen ? ' ' : 'hidden ') + ' text-xs font-light tracking-wider'}>
+                    </p>
                 </div>
             </div>
         </div>
