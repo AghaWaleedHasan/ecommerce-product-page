@@ -3,8 +3,9 @@ import img1 from '../assets/images/prodimage1.webp'
 import QtyInput from './qtyinput';
 import { RxRulerHorizontal } from 'react-icons/rx'
 import { BsChevronDown } from 'react-icons/bs'
+import { AiOutlineClose } from 'react-icons/ai'
 import img2 from '../assets/images/prodimage2.webp'
-import img4 from '../assets/images/prod4.webp'
+import img4 from '../assets/images/Grey Trousers.webp'
 import img3 from '../assets/images/prodimage3.webp'
 import Carousel from './carousel';
 
@@ -76,37 +77,38 @@ const ProductPage = () => {
                         <QtyInput qty={qty} setQty={setQty} />
                     </div>
                 </div>
-                <div className='flex space-x-2 items-center cursor-pointer' id='open-size-chart' onClick={() => openSizeChart()}>
+                <div className='flex space-x-2 items-center cursor-pointer hover:text-gray-500' id='open-size-chart' onClick={() => openSizeChart()}>
                         <RxRulerHorizontal size={24} /> <span>Size chart</span>
                 </div>
                 <dialog id='data-modal'>
                             <div className='flex flex-col justify-center items-center'>
-                                <span className='font-bold'>Cuban Shirts</span>
-                                <table>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                <span className='w-full flex justify-end'><button id='close-size-chart' onClick={() => closeSizeChart()}><AiOutlineClose /></button></span>
+                                <span className='font-bold mb-4'>Cuban Shirts</span>
+                                <table className=''>
+                                    <tr className='font-bold'>
+                                        <td className=' w-40 h-12 flex items-center'>Size</td>
+                                        <td className=' w-20'>S</td>
+                                        <td className=' w-20'>M</td>
+                                        <td className=' w-20'>L</td>
+                                        <td className=' w-20'>XL</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td className=' w-40 h-12 flex items-center'>Length</td>
+                                        <td className=' w-20'>27</td>
+                                        <td>28</td>
+                                        <td>29</td>
+                                        <td>30</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td className=' w-40 h-12 flex items-center'>Chest</td>
+                                        <td>20</td>
+                                        <td>21</td>
+                                        <td>22</td>
+                                        <td>23</td>
                                     </tr>
                                 </table>
                             </div>
-                            <button id='close-size-chart' onClick={() => closeSizeChart()}>Close</button>
+                            {/* <button id='close-size-chart' onClick={() => closeSizeChart()}>Close</button> */}
                 </dialog>
                 <div className='w-full flex flex-col space-y-6'>
                     <button className=' h-10 w-full lg:w-1/2 bg-black text-white font-bold text-sm tracking-wider'>ADD TO CART</button>

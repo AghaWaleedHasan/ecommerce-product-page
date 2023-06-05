@@ -19,7 +19,7 @@ const Footer = () => {
         </div>
         <div className='flex flex-col space-y-2 text-xs text-gray-300'>
             <span className='text-white font-bold mb-2 text-sm'>FOLLOW US</span>
-            <span className='flex space-x-4'><FaFacebookF className='bg-white rounded-full w-8 h-8 p-2' color='black' size={16}/><AiOutlineInstagram className='bg-white rounded-full w-8 h-8 p-2 cursor-pointer' color='black' size={24}/></span>
+            <span className='flex space-x-4'><FaFacebookF className='bg-white rounded-full w-8 h-8 p-2 cursor-pointer hover:bg-blue-500' color='black' size={16}/><AiOutlineInstagram className='bg-white rounded-full w-8 h-8 p-2 cursor-pointer hover:bg-pink-600' color='black' size={24}/></span>
         </div>
     </div>
   )
